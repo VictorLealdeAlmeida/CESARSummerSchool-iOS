@@ -19,8 +19,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let blocoCinco = Bloco(nome: "Bloco do Bigode Cheiroso", imagem: #imageLiteral(resourceName: "bigode"))
     
     lazy var listaBlocos: [Bloco] = [blocoUm , blocoDois, blocoTres,blocoQuatro,  blocoCinco]
-    let cores = [#colorLiteral(red: 0.6274509804, green: 0.1843137255, blue: 0.2, alpha: 1),#colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1),#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1),#colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1),#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,10 +35,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         visaoCell.titulo.text = listaBlocos[indexPath.row].nome
         visaoCell.imagem.image = listaBlocos[indexPath.row].imagem
-        visaoCell.backgroundColor = cores[indexPath.row]
         
         return visaoCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            listaBlocos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+    }
+    
+    func adicionarBloco(nomeDoBloco: String){
+        let bloco = Bloco(nome: nomeDoBloco, imagem: #imageLiteral(resourceName: "leal"))
+    
+        let indice = IndexPath(row: listaBlocos.count, section: 0)
+        
+        listaBlocos.append(bloco)
+        tableViewBlocos.insertRows(at: [indice], with: .automatic)
+    }
 
+    @IBAction func novoElemento(_ sender: Any) {
+        performSegue(withIdentifier: "ListaParaNovoBloco", sender: self)
+    }
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let visao = segue.destination as? AdicionarBlocoViewController{
+            visao.controleTelaUm = self
+        }
+     }
 }
 

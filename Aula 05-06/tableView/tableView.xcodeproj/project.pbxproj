@@ -14,6 +14,7 @@
 		15FBD57A21FB305500586EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FBD57821FB305500586EA3 /* LaunchScreen.storyboard */; };
 		15FBD58221FB32F600586EA3 /* Bloco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FBD58121FB32F600586EA3 /* Bloco.swift */; };
 		15FBD58421FB3C4A00586EA3 /* BlocoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FBD58321FB3C4A00586EA3 /* BlocoTableViewCell.swift */; };
+		15FFE24721FF383400819CFD /* AdicionarBlocoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFE24621FF383400819CFD /* AdicionarBlocoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		15FBD57B21FB305500586EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15FBD58121FB32F600586EA3 /* Bloco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bloco.swift; sourceTree = "<group>"; };
 		15FBD58321FB3C4A00586EA3 /* BlocoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocoTableViewCell.swift; sourceTree = "<group>"; };
+		15FFE24621FF383400819CFD /* AdicionarBlocoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarBlocoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		15FBD56E21FB305200586EA3 /* tableView */ = {
 			isa = PBXGroup;
 			children = (
+				15FFE24621FF383400819CFD /* AdicionarBlocoViewController.swift */,
 				15FBD56F21FB305200586EA3 /* AppDelegate.swift */,
 				15FBD57121FB305200586EA3 /* ViewController.swift */,
 				15FBD57321FB305200586EA3 /* Main.storyboard */,
@@ -145,6 +148,7 @@
 				15FBD58421FB3C4A00586EA3 /* BlocoTableViewCell.swift in Sources */,
 				15FBD57221FB305200586EA3 /* ViewController.swift in Sources */,
 				15FBD57021FB305200586EA3 /* AppDelegate.swift in Sources */,
+				15FFE24721FF383400819CFD /* AdicionarBlocoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
