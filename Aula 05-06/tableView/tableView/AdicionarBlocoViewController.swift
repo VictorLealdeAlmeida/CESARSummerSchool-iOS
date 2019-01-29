@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdicionarBlocoViewController: UIViewController {
+class AdicionarBlocoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var foto: UIImageView!
     @IBOutlet weak var nome: UITextField!
@@ -23,9 +23,35 @@ class AdicionarBlocoViewController: UIViewController {
     
     @IBAction func enviar(_ sender: Any) {
         if let nomeBloco = nome.text{
-            controleTelaUm.adicionarBloco(nomeDoBloco: nomeBloco)
+            controleTelaUm.adicionarBloco(nomeDoBloco: nomeBloco, imagemBloco: foto.image! )
             dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func AbrirGaleria(_ sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagemGaleria = UIImagePickerController()
+            imagemGaleria.delegate = self
+            imagemGaleria.sourceType = .photoLibrary
+            imagemGaleria.allowsEditing = true
+            self.present(imagemGaleria, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let imagemRecebida = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            foto.image = imagemRecebida
+            
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
 
 }

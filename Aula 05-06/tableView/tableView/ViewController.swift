@@ -52,8 +52,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func adicionarBloco(nomeDoBloco: String){
-        let bloco = Bloco(nome: nomeDoBloco, imagem: #imageLiteral(resourceName: "leal"))
+    func adicionarBloco(nomeDoBloco: String, imagemBloco: UIImage){
+        let bloco = Bloco(nome: nomeDoBloco, imagem: imagemBloco)
     
         let indice = IndexPath(row: listaBlocos.count, section: 0)
         
